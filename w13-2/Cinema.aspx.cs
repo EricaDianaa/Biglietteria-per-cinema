@@ -154,17 +154,19 @@ namespace w13_2
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-   
+
+            if (Request.Cookies["CookieLogin"] == null)
+            {
+               Response.Redirect("Default.aspx");
+            }
+           
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Request.Cookies["CookieLogin"] != null)
-            {
+           
               Menu();
-            }else{
-                Response.Redirect("Default.aspx");
-            }  
+           
 
            
         }
