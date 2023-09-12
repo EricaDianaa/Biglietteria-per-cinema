@@ -54,8 +54,7 @@ namespace w13_2
         }
         public void Menu()
         {
-            if (Request.Cookies["CookieLogin"] != null)
-            {
+          
 
            
             //Recupero valori input 
@@ -150,7 +149,8 @@ namespace w13_2
            $"<p>Numero biglietti rimanenti: {120 - SalaEst.Count} </p>";
 
 
-            }
+            
+          
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -159,7 +159,12 @@ namespace w13_2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Menu();
+            if (Request.Cookies["CookieLogin"] != null)
+            {
+              Menu();
+            }else{
+                Response.Redirect("Default.aspx");
+            }  
 
            
         }
