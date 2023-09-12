@@ -19,15 +19,6 @@ namespace w13_2
         public string Biglietto { get; set; }
         public bool BigliettoRidotto { get; set; }
 
-        private bool _bigliettoacquistato = false;
-        public bool BigliettoAcquistato
-
-        {
-            get { return _bigliettoacquistato; }
-            set { _bigliettoacquistato = value; }
-        }
-
-
         public static List<Cinema> Prenotazioni { get; set; } = new List<Cinema>();
         public static List<Cinema> SalaNord { get; set; } = new List<Cinema>();
         public static List<Cinema> SalaSud { get; set; } = new List<Cinema>();
@@ -37,31 +28,19 @@ namespace w13_2
         public static List<Cinema> BigliettiRidotti3 { get; set; } = new List<Cinema>();
 
         public Cinema() { }
-        public Cinema(string nome, string cognome)
-        {
-            Nome = nome;
-            Cognome = cognome;
-          
-
-        }
         public Cinema(string nome, string cognome, string sala, bool biglietto)
         {
             Nome = nome;
             Cognome = cognome;
             Sala = sala;
             BigliettoRidotto = biglietto;
-
         }
         public void Menu()
         {
-          
-
-           
             //Recupero valori input 
             Cinema cinema = new Cinema();
             cinema.Nome = nome.Text;
             cinema.Cognome = cognome.Text;
-            
             string valueSala = DropDownList1.SelectedItem.Value;
             cinema.Sala = valueSala;
             if (ridotto.Checked == true)
@@ -81,10 +60,8 @@ namespace w13_2
                 }
                 else
                 {
-
                     Cinema cinema1 = new Cinema(nome.Text, cognome.Text,
                         DropDownList1.SelectedItem.Value,cinema.BigliettoRidotto);
-                    cinema1.BigliettoAcquistato = true;
                     SalaNord.Add(cinema1);
                     Prenotazioni.Add(cinema1);
                     if (cinema.BigliettoRidotto == true)
@@ -103,7 +80,6 @@ namespace w13_2
                 {
                     Cinema cinema1 = new Cinema(nome.Text, cognome.Text,
                         DropDownList1.SelectedItem.Value, cinema.BigliettoRidotto);
-                    cinema1.BigliettoAcquistato = true;
                     SalaSud.Add(cinema1);
                     Prenotazioni.Add(cinema1);
                     if (cinema.BigliettoRidotto == true)
@@ -123,7 +99,6 @@ namespace w13_2
 
                     Cinema cinema1 = new Cinema(nome.Text, cognome.Text,
                         DropDownList1.SelectedItem.Value, cinema.BigliettoRidotto);
-                    cinema1.BigliettoAcquistato = true;
                     SalaEst.Add(cinema1);
                     Prenotazioni.Add(cinema1);
                     if (cinema.BigliettoRidotto == true)
@@ -147,29 +122,20 @@ namespace w13_2
            $"<h3>Sala Est </h3>" +
            $"<p>Numero biglietti venduti: {SalaEst.Count}  di cui {BigliettiRidotti3.Count} Ridotti </p>" +
            $"<p>Numero biglietti rimanenti: {120 - SalaEst.Count} </p>";
-
-
-            
-          
+ 
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
             if (Request.Cookies["CookieLogin"] == null)
             {
                Response.Redirect("Default.aspx");
             }
-           
         }
-
         protected void Button1_Click(object sender, EventArgs e)
-        {
-           
-              Menu();
-           
-
-           
+        {     
+           Menu();  
+     
         }
-    }
-   
+    }   
 }

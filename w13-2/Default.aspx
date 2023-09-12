@@ -11,7 +11,7 @@
      <asp:TextBox ID="Password" TextMode="Password" runat="server"></asp:TextBox>
          <br />
      <asp:Button CssClass="btn btn-success" ID="Button1" runat="server" Text="Invia" OnClick="Button1_Click"/>
-    <%-- <asp:Label ID="Result" runat="server" />--%>
+  
          
    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="Nome" runat="server" 
    ErrorMessage="Il campo nome non è stato compilato" CssClass="fw-bold text-danger"></asp:RequiredFieldValidator>
