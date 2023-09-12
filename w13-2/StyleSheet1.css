@@ -1,0 +1,34 @@
+﻿body {
+   
+}
+
+#Form {
+    background-image: url(https://www.triesteallnews.it/wp-content/images/2019/04/FOTO.4-2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+ 
+}
+
+#dettagli {
+    background-image: url(https://www.e-duesse.it/wp-content/uploads/2021/03/Scontrino-digitale-non-serve-per-i-cinema.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius:30px
+}
+
+#login {
+
+    min-height:1000px;
+}
+
+
+#body {
+    min-height: 1000px;
+}
+
+#CIAO {
+    background-image: url(https://www.artribune.com/wp-content/uploads/2022/07/Cinema.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px
+}
